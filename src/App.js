@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import RepetitionExercise from "./components/RepetitionExercise";
+import DurationExercise from "./components/DurationExercise";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [currentExercise, setCurrentExercise] = useState(null);
+//copying the excercises from the sample
+  const exercises = [
+    { name: "Push Ups", type: "repetition" },
+    { name: "Bicycling", type: "duration" },
+    { name: "Jumping Jacks", type: "repetition" },
+    { name: "Running", type: "duration" },
+    { name: "Sit Ups", type: "repetition" }
+  ];
+
+  if (!currentExercise) {
+    return (
+      <div>
+        <h1>Exercise Tracker</h1>
+        <p>Select an excercise!</p>
+
+        {exercises.map((exercise, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentExercise(exercise)}
+          >
+            {exercise.name}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  if (currentExercise.type === "repetition") {
+    return (
+      <RepetitionExercise name={currentExercise.name} />
+    );
+  }
+
+  if (currentExercise.type === "duration") {
+    return (
+      <DurationExercise name={currentExercise.name} />
+    );
+  }
 }
 
 export default App;
