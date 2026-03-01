@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import RepetitionExercise from "./components/RepetitionExercise";
 import DurationExercise from "./components/DurationExercise";
+import { useTheme } from "./ThemeContext";
 
 function App() {
   const [currentExercise, setCurrentExercise] = useState(null);
+  const { theme, toggleTheme } = useTheme();
 //copying the excercises from the sample
   const exercises = [
     { name: "Push Ups", type: "repetition" },
@@ -13,8 +15,9 @@ function App() {
     { name: "Sit Ups", type: "repetition" }
   ];
 
+  let content;
   if (!currentExercise) {
-    return (
+    content = (
       <div>
         <h1>Exercise Tracker</h1>
         <p>Select an excercise!</p>
@@ -29,19 +32,20 @@ function App() {
         ))}
       </div>
     );
+  } else if (currentExercise.type === "repetition") {
+    content = <RepetitionExercise name={currentExercise.name} />;
+  } else if (currentExercise.type === "duration") {
+    content = <DurationExercise name={currentExercise.name} />;
   }
 
-  if (currentExercise.type === "repetition") {
-    return (
-      <RepetitionExercise name={currentExercise.name} />
-    );
-  }
-
-  if (currentExercise.type === "duration") {
-    return (
-      <DurationExercise name={currentExercise.name} />
-    );
-  }
+  return (
+    <div>
+      <button onClick={toggleTheme}>
+        {theme === "light" ? "Dark Mode" : "Light Mode"}
+      </button>
+      {content}
+    </div>
+  );
 }
 
 export default App;
