@@ -40,7 +40,17 @@ function App() {
 
   return (
     <div>
-      <button onClick={toggleTheme}>
+      <button
+        onClick={toggleTheme}
+        style={{
+          position: "fixed",
+          top: "12px",
+          right: "16px",
+          zIndex: 1000,
+          padding: "6px 12px",
+          cursor: "pointer",
+        }}
+      >
         {theme === "light" ? "Dark Mode" : "Light Mode"}
       </button>
       {content}
