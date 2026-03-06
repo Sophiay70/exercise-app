@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/exercise-tracker-copy/static/css/main.7bff5b24.css",
+    "main.js": "/exercise-tracker-copy/static/js/main.69bb46d0.js",
+    "static/js/453.716317c4.chunk.js": "/exercise-tracker-copy/static/js/453.716317c4.chunk.js",
+    "index.html": "/exercise-tracker-copy/index.html",
+    "main.7bff5b24.css.map": "/exercise-tracker-copy/static/css/main.7bff5b24.css.map",
+    "main.69bb46d0.js.map": "/exercise-tracker-copy/static/js/main.69bb46d0.js.map",
+    "453.716317c4.chunk.js.map": "/exercise-tracker-copy/static/js/453.716317c4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7bff5b24.css",
+    "static/js/main.69bb46d0.js"
+  ]
+}
