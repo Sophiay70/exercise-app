@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RepetitionExercise from "./components/RepetitionExercise";
 import DurationExercise from "./components/DurationExercise";
 import { useTheme } from "./ThemeContext";
+import RunningExercise from "./components/RunningExercise";
 
 function App() {
   const [currentExercise, setCurrentExercise] = useState(null);
@@ -11,7 +12,7 @@ function App() {
     { name: "Push Ups", type: "repetition" },
     { name: "Bicycling", type: "duration" },
     { name: "Jumping Jacks", type: "repetition" },
-    { name: "Running", type: "duration" },
+    { name: "Running", type: "running" },
     { name: "Sit Ups", type: "repetition" }
   ];
 
@@ -32,12 +33,13 @@ function App() {
         ))}
       </div>
     );
-  } else if (currentExercise.type === "repetition") {
-    content = <RepetitionExercise name={currentExercise.name} />;
-  } else if (currentExercise.type === "duration") {
-    content = <DurationExercise name={currentExercise.name} />;
-  }
-
+} else if (currentExercise.type === "repetition") {
+  content = <RepetitionExercise name={currentExercise.name} />;
+} else if (currentExercise.type === "duration") {
+  content = <DurationExercise name={currentExercise.name} />;
+} else if (currentExercise.type === "running") {
+  content = <RunningExercise name={currentExercise.name} />;
+}
   return (
     <div>
       <div
